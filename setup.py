@@ -3,7 +3,9 @@
 
 import os
 from setuptools import setup, find_packages
-from djrulengine import __version__
+
+VERSION = (0, 0, 1)
+__version__ = '.'.join(map(str, VERSION))
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.md')).read()
 
@@ -26,7 +28,7 @@ setup(
     keywords='django,rule engine,django admin,admin rule engine',
     packages=packages,
     install_requires=[
-        'Django==1.7',
+        'Django==1.7.10',
         'django-nested-inline==0.3.7',
         'rulengine==0.0.6'
     ]

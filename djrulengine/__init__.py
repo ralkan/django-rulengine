@@ -4,10 +4,6 @@ from rulengine import execute as _execute
 from .models import Rule as RuleModel, ContextValue
 
 
-VERSION = (0, 0, 1)
-__version__ = '.'.join(map(str, VERSION))
-
-
 class RuleManager(object):
     code = None
     context = None
