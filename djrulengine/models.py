@@ -3,7 +3,8 @@ from rulengine.core import DataType, ConditionOperator, RuleOperator
 
 
 class RuleContext(models.Model):
-    code = models.CharField(max_length=255)
+    code = models.CharField(max_length=255, help_text=(
+        'Specify rule context.Example: threed_console'))
 
     def __unicode__(self):
         return self.code
