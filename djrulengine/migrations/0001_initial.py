@@ -63,7 +63,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='contextvalue',
             name='rule_context',
-            field=models.ForeignKey(related_name='context_values', blank=True, to='djrulengine.RuleContext', null=True),
+            field=models.ForeignKey(related_name='context_values', to='djrulengine.RuleContext'),
             preserve_default=True,
         ),
         migrations.AddField(
