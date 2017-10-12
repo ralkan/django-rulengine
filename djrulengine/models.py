@@ -21,8 +21,7 @@ class ContextValue(models.Model):
     data_type = models.CharField(max_length=255, choices=DATASTRUCTURE_CHOICES)
 
     rule_context = models.ForeignKey(
-        'djrulengine.RuleContext', related_name='context_values',
-        null=True, blank=True)
+        'djrulengine.RuleContext', related_name='context_values')
     implemented = models.BooleanField(default=False)
 
     def __unicode__(self):
