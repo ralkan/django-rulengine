@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib import admin
-from django.core.urlresolvers import resolve
 from nested_inline.admin import (
     NestedTabularInline, NestedStackedInline, NestedModelAdmin)
 from .models import RuleContext, Rule, Condition, ContextValue
@@ -22,15 +21,8 @@ class ConditionInline(NestedTabularInline):
     fk_name = 'rule'
     extra = 1
 
-    def get_rule_context_from_request(self, request):
-        resolved = resolve(request.path_info)
-        if resolved.args:
-            return RuleContext.objects.get(pk=resolved.args[0])
-        return None
-
     def get_formset(self, request, obj=None, **kwargs):
-        parent = self.get_rule_context_from_request(request)
-        self.form.rule_context = parent
+        self.form.rule_context = self.root_obj
         return super(ConditionInline, self).get_formset(request, obj, **kwargs)
 
 
